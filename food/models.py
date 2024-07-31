@@ -6,6 +6,6 @@ class Item(models.Model):
         return self.item_name
 
     item_name = models.CharField(max_length=200)
-    item_desc = models.CharField(max_length=200)
+    item_desc = models.CharField(max_length=500)
     item_price = models.IntegerField()
-    item_image = models.CharField(max_length=500, default="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTne9zFARFBv8s504Akf4-Bdj2Dx6XIBWFHYQ&s")
+    item_image = models.CharField(max_length=500, default="https://play-lh.googleusercontent.com/JA0qswBq-iSo5HbTZyyqAEYEdQ-9JjmkNqxyCqAndO8JzHwKnRSzcGrKdhrshDxw4w=w480-h960-rw")
