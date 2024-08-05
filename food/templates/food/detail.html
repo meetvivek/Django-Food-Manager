@@ -4,32 +4,17 @@
 {% block body%}
 <div class="row flex-lg-row-reverse align-items-center g-5 py-5 m-5">
     <div class="col-10 col-sm-8 col-lg-6">
-<<<<<<< HEAD
-      <img src="{{ item.item_image }}" class="d-block mx-lg-auto img-fluid" alt="{{ item.item_name }}"  loading="lazy">
-=======
       <img src="{{ item.item_image }}" class="d-block mx-lg-auto img-fluid" alt="{{ item.item_name }}" width="380" height="380" loading="lazy">
->>>>>>> b871f72 (Added User & their Login/Logout function)
     </div>
     <div class="col-lg-6">
       <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">{{ item.item_name }}</h1>
       <p class="lead">{{ item.item_desc }}</p>
       <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-<<<<<<< HEAD
-        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
-        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
-      </div>
-    </div>
-  </div>
-<h1> Name : {{ item.item_name}} </h1>
-<h2> Descripition : {{ item.item_desc }} </h2>
-<h3> Price : {{ item.item_price }} </h3>
-=======
         <a href="{% url 'update_item' item.id %}" class="btn btn-warning btn-lg px-4 me-md-2">Edit</a>
         <a href="{% url 'delete_item' item.id %}" class="btn btn-danger btn-lg px-4 me-md-2">Delete</a>
       </div>
     </div>
   </div>
 
->>>>>>> b871f72 (Added User & their Login/Logout function)
 
 {% endblock %}

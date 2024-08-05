@@ -3,11 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-<<<<<<< HEAD
-    path('<int:item_id>/', views.detail, name='detail'),
-    path('item/', views.item, name='item'),
-    
-=======
     # Views Details of an Item
     path('<int:item_id>/', views.detail, name='detail'),
     path('item/', views.item, name='item'),
@@ -17,5 +12,4 @@ urlpatterns = [
     path('update/<int:id>/', views.update_item, name="update_item"),
     # Delete Items
     path('delete/<int:id>/', views.delete_item, name="delete_item"),
->>>>>>> b871f72 (Added User & their Login/Logout function)
 ]

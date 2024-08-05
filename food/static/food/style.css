@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-.hover-text-blue:hover {
-  color: #007bff; /* Bootstrap primary color */
-=======
 body {
     margin: 0;
     height: 100vh;
@@ -56,5 +52,4 @@ body {
 .profile-btn:hover {
   background-color: #f7b032;
   box-shadow: 0 0 10px rgba(255, 223, 0, 0.8);
->>>>>>> b871f72 (Added User & their Login/Logout function)
 }

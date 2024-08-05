@@ -11,10 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-<<<<<<< HEAD
-=======
 import os
->>>>>>> b871f72 (Added User & their Login/Logout function)
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -45,10 +42,7 @@ INSTALLED_APPS = [
 
 MY_APPS = [
     'food.apps.FoodConfig',
-<<<<<<< HEAD
-=======
     'users.apps.UsersConfig',
->>>>>>> b871f72 (Added User & their Login/Logout function)
 ]
 
 INSTALLED_APPS += MY_APPS
@@ -135,11 +129,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-<<<<<<< HEAD
-=======
 
 LOGIN_REDIRECT_URL = "/food"
 LOGIN_URL = 'login'
 MEDIA_ROOT = os.path.join(BASE_DIR, "PICTURES")
 MEDIA_URL = "/PICTURES/"
->>>>>>> b871f72 (Added User & their Login/Logout function)
