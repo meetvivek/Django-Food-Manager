@@ -1,3 +1,60 @@
+<<<<<<< HEAD
 .hover-text-blue:hover {
   color: #007bff; /* Bootstrap primary color */
+=======
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(45deg, #bed7fa, #FAF3E0);
+    background-size: 200% 200%; /* Adjusted size for smoother animation */
+    animation: gradientAnimation 15s ease infinite; /* Slower animation for smoother effect */
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+.nav-item a.nav-link {
+  color: #eeedeb;
+  transition: color 0.3s ease;
+}
+
+.nav-item a.nav-link:hover {
+  color: orange;
+}
+
+.navbar-brand {
+    color: #eeedeb;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-brand:hover {
+    color: orange;
+  }
+  
+  .profile-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    background-color: #f8c145; 
+    transition: box-shadow 0.3s ease;
+}
+
+.profile-img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%; 
+    object-fit: cover; 
+}
+
+
+.profile-btn:hover {
+  background-color: #f7b032;
+  box-shadow: 0 0 10px rgba(255, 223, 0, 0.8);
+>>>>>>> b871f72 (Added User & their Login/Logout function)
 }

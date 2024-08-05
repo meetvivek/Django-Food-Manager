@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{% static 'food/style.css' %}" />
   </head>
   <body>
+<<<<<<< HEAD
     <header
       class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom bg-dark fixed-top"
     >
@@ -74,6 +75,60 @@
       </ul>
     </header>
 
+=======
+
+    <header style="background-color: #2F3645;"
+      class="d-flex flex-wrap justify-content-center py-3 px-2  border-bottom"
+    >
+      <a
+        href="{% url 'index' %}"
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none text-white"
+      >
+      <img src="../PICTURES\LOGO.png" alt="New Icon" width="40" height="40" class="mb-1">
+
+        <h2 class=""> FoodieHub </h2>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="#" class="nav-link">Delete item</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">View item</a></li>
+
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a href="{% url 'create_item' %}" class="btn btn-secondary mx-2">Add item </a>
+          </li>
+          
+          <li class="nav-item ">
+            <form method="post" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-warning mx-2" >Logout</button>
+            </form>
+          </li>
+
+          <li class="nav-item">
+            <a href="{% url 'profile' %}" class="profile-btn mx-1" aria-current="page">
+                <img src="{{ user.profile.image.url }}" class="profile-img" />
+            </a>
+        </li>
+        
+        
+        {% else %}
+          <li class="nav-item">
+            <a href="{% url 'login' %}" class="btn btn-warning mx-1" aria-current="page"> Login </a>
+          </li>
+        {% endif %}
+      </ul>
+    </header>
+
+        {% if messages %}
+          {% for message in messages %}
+            <div class="d-flex justify-content-center alert alert-{{ message.tags }} " style="background:   #f0ad4e; ">
+              <b>{{ message }}</b>
+            </div>
+          {% endfor%}
+        {% endif %}
+
+>>>>>>> b871f72 (Added User & their Login/Logout function)
     {% block body%} {% endblock %}
   </body>
 </html>

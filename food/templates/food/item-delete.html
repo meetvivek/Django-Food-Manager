@@ -1,0 +1,38 @@
+{% extends 'food/base.html' %} {% block body %}
+<form method="POST">
+  {% csrf_token %}
+
+  <div
+    class="modal modal-sheet position-static d-block p-4 py-md-5 mt-5"
+    tabindex="-1"
+    role="dialog"
+    id="modalChoice"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content rounded-3 shadow">
+        <div class="modal-body p-4 text-center">
+          <h5 class="mb-0">
+            Are your sure you want to delete
+            <b style="color: orange">{{ item.item_name }}</b> ?
+          </h5>
+          <p class="mb-0">You can not undo this.</p>
+        </div>
+        <div class="modal-footer flex-nowrap p-0">
+          <button
+            type="submit"
+            class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0 border-end"
+          >
+            Yes
+          </button>
+          <a
+            href="{% url 'detail' item.id %}"
+            class="btn btn-lg btn-link fs-6 text-decoration-none col-6 py-3 m-0 rounded-0"
+            ><strong>No</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+{% endblock %}

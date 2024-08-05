@@ -1,0 +1,11 @@
+{% extends 'food/base.html' %}
+
+{% block body %}
+
+<form class= "row g-2  m-5 mt-2" method="POST"> 
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" class=" btn btn-warning"> Signup </button>
+</form>
+
+{% endblock %}
