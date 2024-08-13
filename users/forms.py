@@ -4,14 +4,13 @@ from django import forms
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField()
-    full_name = forms.CharField(max_length=100, required=False)
-    image = forms.ImageField(required=False)
+    full_name = forms.CharField(max_length=100)
     city = forms.CharField(max_length=100, required=False)
     state = forms.CharField(max_length=100, required=False)
     pin_code = forms.CharField(max_length=10, required=False)
     favorite_food = forms.CharField(max_length=100, required=False)
-
+    image = forms.ImageField(required=False)
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2']
+        fields = ['username', 'email', 'password1', 'password2', 'full_name', 'city', 'state', 'pin_code', 'favorite_food', 'image']

@@ -1,24 +1,40 @@
 <!-- MY CODE -->
-{% extends 'food/base.html' %}
-    {% block body%}
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5 m-5 mt-3">
-        {% for item in item_list %}
-                <div class="col">
-                <div class="card shadow-lg">
-                    <img src="{{ item.item_image }}" class="bd-placeholder-img card-img-top" width="100%" height="230" alt="{{ item.item_name }}">
-                    <div class="card-body">
-                        <h3 class="card-title"> <a href="{% url 'detail' item.id %}" class="text-decoration-none" style="color: orange;">{{ item.item_name }}</a> </h3>
-                        <p class="card-text">{{ item.item_desc }}</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <a href="{% url 'detail' item.id %}" class="btn btn-warning">Details</a>
-                            </div>
-                            <h5 class="text-body-secondary"><b>Rs.{{ item.item_price }}</b></h5>
-                        </div>
-                    </div>
-                </div>
-                </div>          
-        {% endfor %}  
-    </div> 
-    {% endblock %}
-
+{% extends 'food/base.html' %} {% block body%}
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5 m-5 mt-3">
+  {% for item in item_list %}
+  <div class="col">
+    <div class="card shadow-lg">
+      <img
+        src="{{ item.item_image }}"
+        class="bd-placeholder-img card-img-top"
+        width="100%"
+        height="230"
+        alt="{{ item.item_name }}"
+      />
+      <div class="card-body">
+        <h3 class="card-title">
+          <a
+            href="{% url 'detail' item.id %}"
+            class="text-decoration-none"
+            style="color: orange"
+            >{{ item.item_name }}</a
+          >
+        </h3>
+        <p class="text-body-secondary">
+          <i>Item Added by: <u>{{ item.user_name }}</u></i>
+        </p>
+        <p class="card-text">{{ item.item_desc }}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <a href="{% url 'detail' item.id %}" class="btn btn-warning"
+              >Details</a
+            >
+          </div>
+          <h5 class="text-body-secondary"><b>Rs.{{ item.item_price }}</b></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
