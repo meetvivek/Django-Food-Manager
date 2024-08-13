@@ -1,18 +1,10 @@
-{% comment %} <form method="post" action="{% url 'logout' %}">
-    {% csrf_token %}
-    <button type="submit">logout</button>
-</form> {% endcomment %}
-
-
 <h2>Logging out...</h2>
 <form method="post" action="{% url 'logout' %}" id="logout-form">
     {% csrf_token %}
 </form>
 <script type="text/javascript">
-    // Submit the form automatically
     document.getElementById('logout-form').submit();
 
-    // Redirect to /food after the form is submitted
     setTimeout(function() {
         window.location.href = "/food";
     });

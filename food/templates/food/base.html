@@ -17,6 +17,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="{% static 'food/style.css' %}" />
+    <link rel="shortcut icon" type="image/png" href="{% static 'food/LOGO.png' %}">
   </head>
   <body>
 
@@ -25,7 +26,7 @@
     >
       <a
         href="{% url 'index' %}"
-        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none text-white"
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none text-white "
       >
       <img src="{% static 'food/LOGO.png' %}" alt="New Icon" width="40" height="40" class="mb-1">
 
@@ -33,9 +34,8 @@
       </a>
 
       <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#" class="nav-link">Delete item</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">View item</a></li>
-
+        {% comment %} <li class="nav-item"><a href="#" class="nav-link">Delete item</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">View item</a></li> {% endcomment %}
         {% if user.is_authenticated %}
           <li class="nav-item">
             <a href="{% url 'create_item' %}" class="btn btn-secondary mx-2">Add item </a>

@@ -20,7 +20,7 @@ def register(request):
             profile.save()
             
             username = (form.cleaned_data.get('username')).upper()
-            messages.success(request, f'Welcome "{username}", your account is created Successfully.🥳')
+            messages.success(request, f'Welcome "{username}", your account is created Successfully, you can Login now.🥳')
             return redirect('login')
     else:
         form = RegisterForm()
