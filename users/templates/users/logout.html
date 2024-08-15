@@ -1,11 +1,26 @@
-<h2>Logging out...</h2>
-<form method="post" action="{% url 'logout' %}" id="logout-form">
-    {% csrf_token %}
-</form>
+{% extends 'food/base.html' %}
+
+{% block body %}
+<div class="container text-center mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg p-4">
+        <h2 class="text-warning mb-4">Logging out...</h2>
+        <p class="lead">You are being logged out. Please wait while we redirect you to the homepage.</p>
+        <form method="post" action="{% url 'logout' %}" id="logout-form">
+          {% csrf_token %}
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script type="text/javascript">
+    // Submit the logout form and redirect to the homepage after a short delay
     document.getElementById('logout-form').submit();
 
     setTimeout(function() {
         window.location.href = "/food";
-    });
+    }, 70);  // Delay of 1 second to allow the form submission
 </script>
+{% endblock %}

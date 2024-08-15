@@ -2,41 +2,31 @@
 {% load widget_tweaks %}
 
 {% block body %}
-    
-<main class="form-signin col-md-4 offset-md-4 mt-5">
-    <form method="POST">
-      {% csrf_token %}
-      <h1 class="h3 mb-3 fw-normal" style="color: orange"><b>Add item</b></h1>
-      {% for field in form %}
-        <div class="mb-3 form-group">
-          {{ field.label_tag  }}
-          {{ field|add_class:"form-control" }}
-          {% if field.errors %}
-            <div class="invalid-feedback d-block">
-              {% for error in field.errors %}
-                <p>{{ error }}</p>
-              {% endfor %}
-            </div>
-          {% endif %}
-        </div>
-      {% endfor %}
-      {% if form.non_field_errors %}
-        <div class="alert alert-danger">
-          {% for error in form.non_field_errors %}
-            <p>{{ error }}</p>
-          {% endfor %}
-        </div>
-      {% endif %}
-  
-      
-      <button class="w-100 btn btn-lg btn-warning" type="submit">Add</button>
-    </form>
-  </main>
-
-    {% comment %} <form class= "row g-3 py-5 m-5" method = "POST">
-        {% csrf_token %}
-        {{ form }}
-        <button type='submit' class=" btn btn-warning"> Save </button>
-    </form> {% endcomment %}
-
+<main class="form-signin mx-auto mt-5" style="max-width: 400px;">
+  <form method="POST">
+    {% csrf_token %}
+    <h1 class="h3 mb-3 fw-normal text-center" style="color: orange;"><b>Add item</b></h1>
+    {% for field in form %}
+      <div class="mb-3 form-group">
+        {{ field.label_tag }}
+        {{ field|add_class:"form-control" }}
+        {% if field.errors %}
+          <div class="invalid-feedback d-block">
+            {% for error in field.errors %}
+              <p>{{ error }}</p>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+    {% if form.non_field_errors %}
+      <div class="alert alert-danger">
+        {% for error in form.non_field_errors %}
+          <p>{{ error }}</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <button class="w-100 btn btn-lg btn-warning" type="submit">Add</button>
+  </form>
+</main>
 {% endblock %}

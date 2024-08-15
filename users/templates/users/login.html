@@ -1,13 +1,11 @@
 {% extends 'food/base.html' %}
 {% load widget_tweaks %}
 
-
 {% block body %}
-
-<main class="form-signin col-md-4 offset-md-4 mt-5">
+<main class="form-signin mx-auto mt-5" style="max-width: 400px;">
   <form method="POST">
     {% csrf_token %}
-    <h1 class="h3 mb-3 fw-normal" style="color: orange"><b>Log in</b></h1>
+    <h1 class="h3 mb-3 fw-normal text-center" style="color: orange;"><b>Log in</b></h1>
     {% for field in form %}
       <div class="mb-3 form-group">
         {{ field.label_tag }}
@@ -28,14 +26,12 @@
         {% endfor %}
       </div>
     {% endif %}
-
     <div class="text-start my-3">
-      <h6>Don’t you have an account?  
-        <a href="{% url 'register' %}" class="text-decoration-none" style="color: orange">Sign up</a>
+      <h6>Don’t you have an account?
+        <a href="{% url 'register' %}" class="text-decoration-none" style="color: orange;">Sign up</a>
       </h6>
     </div>
     <button class="w-100 btn btn-lg btn-warning" type="submit">Log in</button>
   </form>
 </main>
-
-{% endblock %} 
+{% endblock %}
