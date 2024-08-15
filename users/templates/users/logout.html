@@ -16,11 +16,33 @@
 </div>
 
 <script type="text/javascript">
-    // Submit the logout form and redirect to the homepage after a short delay
-    document.getElementById('logout-form').submit();
-
-    setTimeout(function() {
-        window.location.href = "/food";
-    }, 70);  // Delay of 1 second to allow the form submission
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('logout-form');
+    if (form) {
+      // Submit the form using fetch API
+      fetch(form.action, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        },
+        body: new URLSearchParams(new FormData(form)).toString()
+      })
+      .then(response => {
+        if (response.ok) {
+          // Redirect after a delay
+          setTimeout(function() {
+            window.location.href = "/food";
+          }, 1000);  // Delay of 1 second
+        } else {
+          console.error('Logout failed');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    }
+  });
 </script>
+
 {% endblock %}
