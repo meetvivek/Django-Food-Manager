@@ -1,32 +1,36 @@
 {% extends 'food/base.html' %}
-{% load widget_tweaks %}
 
 {% block body %}
-<main class="form-signin mx-auto mt-5" style="max-width: 400px;">
-  <form method="POST">
-    {% csrf_token %}
-    <h1 class="h3 mb-3 fw-normal text-center" style="color: orange;"><b>Add item</b></h1>
-    {% for field in form %}
-      <div class="mb-3 form-group">
-        {{ field.label_tag }}
-        {{ field|add_class:"form-control" }}
-        {% if field.errors %}
-          <div class="invalid-feedback d-block">
-            {% for error in field.errors %}
-              <p>{{ error }}</p>
-            {% endfor %}
+<div class="container mt-3">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-5 px-3 px-sm-4 px-md-5 mt-md-4">
+    {% for item in item_list %}
+    <div class="col">
+      <div class="card shadow-lg">
+        <img
+          src="{{ item.item_image }}"
+          class="bd-placeholder-img card-img-top"
+          alt="{{ item.item_name }}"
+          style="height: 230px; object-fit: cover;"
+        />
+        <div class="card-body">
+          <h3 class="card-title">
+            <a
+              href="{% url 'detail' item.id %}"
+              class="text-decoration-none text-warning"
+            >{{ item.item_name }}</a>
+          </h3>
+          <p class="text-muted">
+            <i>Item Added by: {{ item.user_name }}</i>
+          </p>
+          <p class="card-text">{{ item.item_desc }}</p>
+          <div class="d-flex justify-content-between align-items-center mt-3">
+            <a href="{% url 'detail' item.id %}" class="btn btn-warning">Details</a>
+            <h5 class="mb-0 text-body-secondary"><b>Rs.{{ item.item_price }}</b></h5>
           </div>
-        {% endif %}
+        </div>
       </div>
+    </div>
     {% endfor %}
-    {% if form.non_field_errors %}
-      <div class="alert alert-danger">
-        {% for error in form.non_field_errors %}
-          <p>{{ error }}</p>
-        {% endfor %}
-      </div>
-    {% endif %}
-    <button class="w-100 btn btn-lg btn-warning" type="submit">Add</button>
-  </form>
-</main>
+  </div>
+</div>
 {% endblock %}
