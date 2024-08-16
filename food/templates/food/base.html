@@ -18,6 +18,19 @@
   ></script>
   <link rel="stylesheet" href="{% static 'food/style.css' %}" />
   <link rel="shortcut icon" type="image/png" href="{% static 'food/LOGO.png' %}">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+    .content {
+      flex: 1;
+    }
+  </style>
 </head>
 <body>
 
@@ -51,15 +64,17 @@
   </ul>
 </header>
 
-{% if messages %}
-  {% for message in messages %}
-    <div class="alert alert-{{ message.tags }} text-center" style="background: #f0ad4e;">
-      <b>{{ message }}</b>
-    </div>
-  {% endfor %}
-{% endif %}
+<div class="content">
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} text-center" style="background: #f0ad4e;">
+        <b>{{ message }}</b>
+      </div>
+    {% endfor %}
+  {% endif %}
 
-{% block body %}{% endblock %}
+  {% block body %}{% endblock %}
+</div>
 
 <footer style="background-color: #2F3645;" class="text-center py-2 mt-4">
   <p class="mb-0">
